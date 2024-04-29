@@ -138,6 +138,8 @@ filtroProductosInput.addEventListener('input', function(event) {
     const filtro = event.target.value.toLowerCase(); // Obtener el valor del input en minúsculas
     filtrarProductos(filtro);
 });
+
+actualizarCarrito();
 };
 
 // Función para añadir un producto al carrito
@@ -202,7 +204,6 @@ function guardarProductosEnLocalStorage(productos) {
     localStorage.setItem('productos', JSON.stringify(productos));
 }
 
-// Función para actualizar la interfaz de usuario del carrito
 function actualizarCarrito() {
     var listaProductosHTML = ''; // Variable para almacenar el HTML de la lista de productos
 
@@ -223,7 +224,7 @@ function actualizarCarrito() {
             var producto = productos[id];
             listaProductosHTML += `
                 <div class="shopping-box" data-product-id="${producto.id}">
-                    <i class="fas fa-times"></i>
+                    <i class="fas fa-times eliminar-producto" data-product-id="${producto.id}"></i>
                     <img src="${producto.imagen}" alt="${producto.nombre}">
                     <div class="shop-content">
                         <h3>${producto.nombre}</h3>
@@ -242,6 +243,14 @@ function actualizarCarrito() {
 
     // Actualizar el contenido del contenedor con la lista de productos
     document.getElementById('lista-productos').innerHTML = listaProductosHTML;
+
+    // Agregar event listener para los botones de eliminar producto
+    document.querySelectorAll('.eliminar-producto').forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = button.dataset.productId;
+            eliminarProducto(productId);
+        });
+    });
 }
 
 // Función para eliminar un producto del carrito

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form with Email Validation</title>
+</head>
+<body>
+
+    <h1>Login</h1>
+
+    <form id="loginForm">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="submit">Sign In</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#loginForm').submit(function(e){
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get form data
+            var formData = $(this).serialize();
+            var email = $('#email').val();
+            var endpoint = "https://open.kickbox.com/v1/disposable/";
+
+            // Hit the Kickbox API to check if the email is disposable
+            $.ajax({
+                url: endpoint + encodeURIComponent(email),
+                method: "GET"
+            }).done(function(data) {
+                console.log("Email validation response:", data);
+                // Replace this with your desired logic based on the API response
+                if (data.disposable) {
+                    console.log("The email address is disposable.");
+                } else {
+                    console.log("The email address is not disposable.");
+                    // Simulate form submission (replace with actual AJAX call)
+                    console.log("Form submitted with data:", formData);
+                }
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                console.warn("Error validating email:", textStatus, errorThrown);
+                // Simulate form submission (replace with actual AJAX call)
+                console.log("Form submitted with data:", formData);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+
+:root{
+    --maincolor:#c4c9cd;
+    --seondcolor:#dbdbe2;
+    --green: rgb(86, 109, 87);
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: -10%;
+    height: 100vh;
+    width: 100%;
+    background-image: url('images/fondo4.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-color: #f4f4f4;
+    background-size: 40% 50%;
+    background-position-y: -10%;
+    background-position-x: 125%;
+    transform: rotateX('45deg') ;
+}
+
+img {
+    max-height: 10000vh;
+}
+header {
+    background-color: var(--green);
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 1rem;
+    filter: invert(100%);
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+    font-size: 1.2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+nav ul li a:hover {
+    color: #aec6b5;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--maincolor);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+main {
+    padding: 2rem;
+}
+.ropa {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 3%;
+}
+.ropa h2{
+    padding: -1rem;
+}
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1rem;
+    align-items: start;
+}
+.producto {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+.producto:hover {
+    background-color: #474f3e;
+    color: #fff;
+}
+
+.producto h3 :hover {
+    margin-top: 0.7rem;
+    font-size: 1.5rem;
+    color: #241f1f;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.producto h3 {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.producto img {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+    height: auto; /* Ajusta la altura de la imagen automáticamente */
+    aspect-ratio: 9 / 16; /* Establece el aspect ratio a 9:16 */
+    object-fit: stretch; /* Establece cómo la imagen debe ser redimensionada para ajustarse al aspect ratio */
+    border-radius: 5px; /* Opcional: agrega bordes redondeados a las imágenes */
+}
+
+.producto p {
+    font-weight: bold;
+    color: #99b29a;
+    margin-top: 0.5rem;
+}
+
+/* footer {
+    background-color:rgb(86, 109, 87);
+    color: #fff;
+    text-align: center;
+    padding: .5rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+} */
+
+footer {
+    background-color:rgb(86, 109, 87);
+    color: #fff;
+    padding: 10px 0; /* Ajusta el relleno según sea necesario */
+    text-align: center;
+    width: 100%;
+}
+
+.icons i {
+    flex: 1;
+    flex-direction: column;
+    top: 5%;
+    right: 5%;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 1rem; /* Add margin-right for more space between icons */
+}
+
+.icons i:hover {
+    background-color: var(--maincolor);
+    color: #1b1b1b;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    /* Ajustar el ancho para pantallas más pequeñas */
+    .shopping-box {
+        flex-direction: column;
+        align-items: flex-start; /* Alinea los elementos a la izquierda en dispositivos móviles */
+    }
+    
+    .shopping-box img {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .modal {
+        width: 90%; /* Ajusta el ancho del modal para dispositivos móviles */
+        max-height: 80%; /* Altura máxima del 80% de la altura de la ventana */
+    }
+}
+
+.shopping-box {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    padding: .5rem;
+    color: black;
+}
+
+.shopping-box img {
+    width: 150px;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.shopping-box .content {
+    flex-grow: 1;
+}
+
+.fa-times {
+    font-size: 2rem;
+    cursor: pointer;
+    order: 1; /* Cambia el orden del icono de cierre para que esté al final en dispositivos móviles */
+}
+
+.empty-cart {
+    text-align: center; /* Centra el texto horizontalmente */
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-cart h1 {
+    font-size: 24px; /* Tamaño de fuente del mensaje */
+    color: #333; /* Color del texto */
+}
+
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal {
+    position: fixed;
+    width: 50%;
+    max-height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+    padding: 1rem;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.mensaje {
+    position: fixed;
+    bottom: 20px; /* Ajusta la distancia desde el borde inferior */
+    left: 20px; /* Ajusta la distancia desde el borde izquierdo */
+    z-index: 1002; /* Asegura que el mensaje esté por encima de otros elementos */
+    background-color: var(--green); /* Fondo verde */
+    color: white; /* Texto blanco */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: opacity 0.3s ease; /* Transición suave de opacidad */
+    opacity: 0; /* Comienza con opacidad 0 para que aparezca gradualmente */
+}
+
+.mensaje.mostrando {
+    opacity: 1; /* Hace que el mensaje aparezca gradualmente */
+}
+
+.close-cart-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+}
+
+.open-cart-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.agregar-carrito {
+    background-color: var(--green); /* Utiliza el mismo color verde del mensaje */
+    color: white; /* Texto blanco */
+    margin-top: 10px;
+    padding: 10px 20px; /* Ajusta el espacio interno */
+    border: none; /* Quita el borde predeterminado */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.agregar-carrito:hover {
+    opacity: 0.9; /* Reduce ligeramente la opacidad al pasar el cursor sobre el botón */
+}
+
+.agregar-carrito:active {
+    opacity: 0.8; /* Reduce la opacidad cuando el botón está presionado */
+}
+
+.green-button {
+    background-color: var(--green); /* Color de fondo verde */
+    border: none; /* Sin borde */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto al centro */
+    text-decoration: none; /* Sin decoración de texto */
+    display: block; /* Cambiar a display block */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 0 auto; /* Centrar horizontalmente */
+    margin-top: 10px; /* Margen superior de 10px */
+    cursor: pointer; /* Cursor al pasar sobre el botón */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.green-button:hover {
+    background-color: #45a049; /* Color de fondo más oscuro al pasar el ratón */
+}
+
+#filtro-productos {
+    padding: 8px 12px; /* Añadir espacio alrededor del texto */
+    border: 1px solid #ccc; /* Añadir un borde gris */
+    border-radius: 5px; /* Redondear las esquinas */
+    font-size: 16px; /* Tamaño del texto */
+    width: 250px; /* Ancho del input */
+    margin-bottom: 10px; /* Espacio debajo del input */
+}
+
+#filtro-productos::placeholder {
+    color: #999; /* Color del texto del placeholder */
+}

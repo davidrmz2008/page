@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda de Ropa para Mujeres</title>
+<link rel="stylesheet" href="shopping.css">
+<link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.min.css">
+</head>
+<body>
+
+
+<header>
+    <img src="images/logo.png" alt="Empresa de Ropa">
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+        </ul>
+
+        <div class="icons">
+            <i class="open-cart-btn fas fa-shopping-cart" id="shop-cart" ></i>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="modal-overlay">
+        <div class="modal">
+            <button class="close-cart-btn">&times;</button>
+            <div id="lista-productos" class="shopping-cart"></div>
+        </div>
+    </div>
+    <section class="ropa">
+        <h2>Ropa para Mujeres</h2>
+        <input type="text" id="filtro-productos" placeholder="Buscar productos...">
+        <ul class="productos"></ul>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 MoonThief. Todos los derechos reservados.</p>
+</footer>
+<script src="shoppingScript.js"></script>
+</body>
+</html>

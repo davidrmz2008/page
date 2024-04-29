@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Animation</title>
+    <link rel="stylesheet" href="loader.css">
+</head>
+<body>
+    <div class="loader-wrapper" id="loader-wrapper">
+        <div class="loader" id="loader">
+            <div class="inner"></div>
+        </div>
+    </div>
+
+    <script>
+        // Obtiene la URL de destino del parámetro de consulta
+        const urlParams = new URLSearchParams(window.location.search);
+        const destination = urlParams.get('destination');
+
+        // Redirige a la URL de destino después de cierto tiempo
+        setTimeout(function() {
+            if (destination) {
+                window.location.href = destination;
+            } else {
+                console.error('No se proporcionó una URL de destino.');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

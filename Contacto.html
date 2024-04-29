@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto</title>
+<link rel="stylesheet" href="contacto.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<style>
+    /* Estilo para el contenedor principal */
+    .container {
+        display: flex; /* Utiliza flexbox */
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Estilo para la columna izquierda (sección de contacto) */
+    .left-column {
+        flex: 1; /* Toma el espacio disponible */
+        padding: 0 20px; /* Añade espacio alrededor del contenido */
+    }
+
+    /* Estilo para el contenedor del mapa */
+    #map {
+        height: 300px; /* Altura del mapa */
+        width: 60%; /* Ancho del mapa */
+        border-radius: 5px; /* Bordes redondeados */
+        margin: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+    }
+
+    @media only screen and (min-width: 768px) {
+        .left-column {
+            margin-right: 20px; /* Espacio entre columnas en dispositivos más grandes */
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+    <img src="images/logo.png" alt="Empresa de Ropa">
+    <a href="index.html" class="back-link">Regresar a la tienda</a>
+</header>
+<main class="container">
+    <section class="contacto left-column">
+        <h2>Contáctanos</h2>
+        <p>Estamos aquí para ayudarte. Ponte en contacto con nosotros si tienes alguna pregunta o inquietud.</p>
+        <ul>
+            <li><strong>Teléfono:</strong> 33-12-77-88-44</li>
+            <li><strong>Email:</strong> info@empresaderopa.com</li>
+            <li><strong>Dirección:</strong> Av. Principal 123, Ciudad, País</li>
+        </ul>
+    </section>
+    <div id="map"></div> <!-- Contenedor del mapa -->
+</main>
+<footer>
+    <p>&copy; 2024 Fashion It. Todos los derechos reservados.</p>
+</footer>
+<script>
+    // Inicializar el mapa de Leaflet
+    var map = L.map('map').setView([48.8566, 2.3522], 13); // Coordenadas del centro del mapa (París) y nivel de zoom
+
+    // Añadir una capa base (puedes usar cualquier otra capa de tu elección)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Añadir un marcador para la tienda Louis Vuitton
+    L.marker([48.8698, 2.3222]).addTo(map) // Coordenadas de la tienda Louis Vuitton en París
+        .bindPopup("<b>Tienda Principal de la empresa</b><br>París, Francia").openPopup();
+    // Añadir un marcador para la tienda Louis Vuitton
+    L.marker([48.868, 2.33]).addTo(map) // Coordenadas de la tienda Louis Vuitton en París
+        .bindPopup("<b>Tienda secundaria de la empresa</b><br>París, Francia").openPopup();
+</script>
+</body>
+</html>
